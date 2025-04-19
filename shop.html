@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuks Official Store</title>
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="icon" href="img/LOGO (2025_02_08 19_48_23 UTC).webp">
+</head>
+<body style="background: url(img/LOGO\ \(2025_02_08\ 19_48_23\ UTC\).webp); background-repeat: no-repeat; position: relative; background-size: cover; overflow-x: hidden; font-family: 'Times New Roman', Times, serif; display: flex;">
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <h1>Chuks Official Store</h1>
+            </div>
+            <nav >
+                <ul>
+                    <li><button onclick="showCategory('shoes')">Shoes</button></li>
+                    <li><button onclick="showCategory('bags')">Bags</button></li>
+                    <li><button onclick="showCategory('watches')">Watches</button></li>
+                    <li><button onclick="showCategory('electronics')">Electronics</button></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button onclick="openModal('loginModal')">Login</button>
+                <button onclick="openModal('signupModal')">Sign Up</button>
+            </div>
+        </header>
+
+        <!-- Product Catalog Sections -->
+        <section id="shoesSection" class="categorySection"></section>
+        <section id="bagsSection" class="categorySection"></section>
+        <section id="watchesSection" class="categorySection"></section>
+        <section id="electronicsSection" class="categorySection"></section>
+
+        
+</head>
+  <div class="chat-container">
+    <h2>🤖 AI Chatbot</h2>
+    <div id="chat-log" class="chat-log"></div>
+
+    <div class="chat-inputs">
+      <input type="text" id="userInput" placeholder="Ask me something..." />
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startVoice()">🎤</button>
+    </div>
+  </div>
+
+  <audio id="replySound" src="ping.mp3" preload="auto"></audio>
+  
+        <!-- Cart Modal -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <h3>Your Cart</h3>
+                <div id="cartContent"></div>
+                <button onclick="checkout()">Checkout</button>
+                <button onclick="closeModal('cartModal')">Close</button>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <h3>Login</h3>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required><br>
+                    <input type="password" id="loginPassword" placeholder="Password" required><br>
+                    <button type="submit">Login</button>
+                </form>
+                <button onclick="openModal('forgotPasswordModal')">Forgot Password?</button>
+                <button onclick="closeModal('loginModal')">Close</button>
+            </div>
+        </div>
+
+        <!-- Forgot Password Modal -->
+        <div id="forgotPasswordModal" class="modal">
+            <div class="modal-content">
+                <h3>Reset Password</h3>
+                <input type="email" id="forgotPasswordEmail" placeholder="Email" required><br>
+                <button onclick="resetPassword()">Reset Password</button>
+                <button onclick="closeModal('forgotPasswordModal')">Close</button>
+            </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div id="signupModal" class="modal">
+            <div class="modal-content">
+                <h3>Sign Up</h3>
+                <form id="signupForm">
+                    <input type="email" id="signupEmail" placeholder="Email" required><br>
+                    <input type="password" id="signupPassword" placeholder="Password" required><br>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <button onclick="closeModal('signupModal')">Close</button>
+            </div>
+        </div>
+    </div>
+    <p class="discount" id="shoesSection"></p>
+
+    <script src="js/shop.js"></script>
+</body>
+</html>

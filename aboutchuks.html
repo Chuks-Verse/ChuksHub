@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="img/LOGO (2025_02_08 19_48_23 UTC).webp">
+  <title>About Us - ChuksLux</title>
+  <style>
+    /* Reset & base */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+    body { background: linear-gradient(to right,#1a1a1a,#292929); color:#fff; }
+    header {
+      background: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #e0b24c;
+      animation: slideDown 1s ease-out;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      margin: 0;
+      color: #e0b24c;
+      font-size: 2.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px;
+      background-color: #1a1a1a;
+      animation: fadeInNav 1.2s ease-out;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e0b24c;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e0b24c;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInNav {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* About section */
+    main { padding:40px 20px; max-width:800px; margin:auto; }
+    .about-container { background:#1f1f1f; border-radius:10px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
+    .about-container h2 { color:#e0b24c; text-align:center; margin-bottom:20px; }
+    .about-container p { color:#ccc; line-height:1.6; margin-bottom:20px; }
+
+    /* Testimonials */
+    .testimonial-section { margin-top:40px; }
+    .testimonial { background:#292929; padding:20px; border-left:4px solid #e0b24c; border-radius:6px; margin-bottom:20px; }
+    .testimonial p { color:#eee; font-style:italic; }
+    .testimonial .author { display:block; margin-top:10px; color:#e0b24c; font-weight:bold; text-align:right; }
+
+    /* Footer */
+    .footer { text-align:center; padding:20px; color:#aaa; font-size:14px; }
+
+    /* Chatbot icon */
+    .chatbot-icon {
+      position:fixed; bottom:25px; right:25px;
+      font-size:32px; background:#1f1f1f; color:#e0b24c;
+      padding:12px 16px; border-radius:50%; cursor:pointer;
+      box-shadow:0 0 15px #e0b24c; animation:pulse 2s infinite; z-index:1000;
+    }
+    @keyframes pulse {0%{box-shadow:0 0 5px #e0b24c;}50%{box-shadow:0 0 25px #e0b24c;}100%{box-shadow:0 0 5px #e0b24c;}}
+
+    /* Chatbot popup */
+    .chatbot-popup { display:none; position:fixed; bottom:90px; right:25px;
+      width:300px; background:#121212; border:2px solid #e0b24c; border-radius:10px;
+      box-shadow:0 0 20px rgba(0,0,0,0.7); overflow:hidden; flex-direction:column; height:400px; z-index:1000;
+    }
+    .chatbot-popup.active { display:flex; }
+    .chatbot-header { background:#1a1a1a; color:#e0b24c; padding:10px; font-weight:bold; display:flex; justify-content:space-between; }
+    .chatbot-messages { flex:1; padding:10px; overflow-y:auto; background:#292929; }
+    .chatbot-input { display:flex; border-top:1px solid #333; }
+    .chatbot-input input { flex:1; padding:10px; border:none; background:#1f1f1f; color:#fff; }
+    .chatbot-input button { padding:10px; background:#e0b24c; color:#000; border:none; cursor:pointer; }
+    .bot-message, .user-message { margin-bottom:10px; padding:8px 10px; border-radius:8px; max-width:80%; }
+    .bot-message { background:#2c2c2c; align-self:flex-start; color:#fff; }
+    .user-message { background:#e0b24c; align-self:flex-end; color:#000; text-align:right; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>ChuksLux</h1>
+
+        
+        <nav>
+          <a href="shop2.html">Home</a>
+          <a href="aboutchuks.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="singup2.html">Sign Up</a>
+          <a href="login2.html">Login</a>
+          <a href="contact form.html">Contact Us</a>
+          <a href="blog.html">Blog</a>
+        
+            </nav>
+      </header>
+
+
+  <!-- About + Testimonials -->
+  <main>
+    <div class="about-container">
+      <h2>About ChuksLux</h2>
+      <p>At ChuksLux, our mission is to bring you the finest in contemporary luxury fashion and lifestyle accessories. Born from a passion for premium design and curated experiences, we blend cutting‑edge styles with unmatched quality—right here in Lagos, for trendsetters everywhere.</p>
+      <p>Our vision is to redefine online shopping as an elevated journey: where every click feels like stepping into an exclusive boutique, and every delivery arrives with excitement.</p>
+
+      <div class="testimonial-section">
+        <h2>What Our Customers Say</h2>
+
+        <div class="testimonial">
+          <p>"Absolutely in love with my new Gold Watch! The packaging, the service, everything was top‑notch. ChuksLux, you’ve won a lifelong customer."</p>
+          <span class="author">— Aisha K.</span>
+        </div>
+
+        <div class="testimonial">
+          <p>"Fast delivery and the Luxury Sneakers fit perfectly. I get compliments every time I wear them. Five stars!"</p>
+          <span class="author">— David O.</span>
+        </div>
+
+        <div class="testimonial">
+          <p>"Such a sleek website and even sleeker products. Shopping at ChuksLux feels like a VIP experience."</p>
+          <span class="author">— Zainab M.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="footer">© 2025 ChuksLux • All Rights Reserved</div>
+
+  <!-- Chatbot -->
+  <div class="chatbot-icon" onclick="toggleChatbot()">🤖</div>
+  <div class="chatbot-popup" id="chatbot">
+    <div class="chatbot-header">ChuksLux Assistant <span onclick="toggleChatbot()">×</span></div>
+    <div class="chatbot-messages" id="messages">
+      <div class="bot-message">Hello! I’m LuxBot. How can I help you today?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask me something...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="js/shop2.js"></script>
+</body>
+</html>

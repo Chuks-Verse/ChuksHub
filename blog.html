@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChuksLux - Blog</title>
+  <link rel="icon" href="img/LOGO (2025_02_08 19_48_23 UTC).webp">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #000; /* Black background */
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Header and Navigation */
+    header {
+      background: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #e0b24c;
+      animation: slideDown 1s ease-out;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      margin: 0;
+      color: #e0b24c;
+      font-size: 2.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px;
+      background-color: #1a1a1a;
+      animation: fadeInNav 1.2s ease-out;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e0b24c;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e0b24c;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInNav {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Blog Section */
+    #blog {
+      padding: 4rem 1rem;
+      background-color: #000; /* Black background */
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #9e2b9e;
+      margin-bottom: 1rem;
+    }
+    .blog-desc {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+    .blog-card {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      margin: 1rem;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card img {
+      width: 250px; /* Adjusted to smaller size */
+      height: auto;
+      border-radius: 8px;
+    }
+    .blog-card h3 {
+      margin: 1rem 0;
+      color: #e0b24c;
+    }
+    .read-more {
+      background-color: #e0b24c;
+      border: none;
+      color: black;
+      padding: 0.7rem 1.5rem;
+      text-transform: uppercase;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .read-more:hover {
+      background-color: #f1b631;
+    }
+    .blog-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>ChuksLux - Your Shopping Destination</h1>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="shop2.html">Home</a>
+    <a href="aboutchuks.html">About Us</a>
+    <a href="products.html">Products</a>
+    <a href="singup2.html">Sign Up</a>
+    <a href="login2.html">Login</a>
+    <a href="contact form.html">Contact Us</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+
+  <!-- Blog Section -->
+  <section id="blog">
+    <div style="max-width: 1200px; margin: auto; text-align: center;">
+      <h2 class="blog-title"  style="color: #e0b24c;">Latest from Our Blog</h2>
+      <p class="blog-desc">Discover the latest trends, tips, and insider info from the world of fashion and shopping. Stay inspired!</p>
+
+      <div class="blog-grid">
+        <!-- Blog Card 1 -->
+        <div class="blog-card">
+          <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg" alt="Blog Post">
+          <h3>Top 10 Must-Have Accessories of the Season</h3>
+          <p class="blog-desc">Looking to upgrade your wardrobe? Here’s our curated list of trending accessories that’ll elevate your style game.</p>
+         <a button href="template.html" class="read-more"  >Read More →</button></a>
+        </div>
+
+        <!-- Blog Card 2 -->
+        <div class="blog-card">
+          <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Blog Post">
+          <h3>How to Style with Confidence</h3>
+          <p class="blog-desc">Fashion is not just about clothes, it's about confidence. Here’s how to style your outfits and own your look!</p>
+         <a  button class="read-more" href="template.html">Read More →</button></a>
+        </div>
+
+        <!-- Blog Card 3 -->
+        <div class="blog-card">
+          <img src="https://images.pexels.com/photos/1645821/pexels-photo-1645821.jpeg" alt="Blog Post">
+          <h3>5 Essential Wardrobe Items You Need Right Now</h3>
+          <p class="blog-desc">From timeless basics to seasonal staples, these wardrobe essentials will take you from day to night effortlessly.</p>
+          <a button class="read-more" href="template.html">Read More →</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ChuksLux. All rights reserved.</p>
+  </footer>
+
+  
+</body>
+</html>

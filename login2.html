@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChuksLux | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/LOGO (2025_02_08 19_48_23 UTC).webp">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1a1a1a, #292929);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .login-box {
+      background: #121212;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      transform: translateY(100vh);
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      color: #e0b24c;
+      margin-bottom: 30px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #1f1f1f;
+      color: #fff;
+    }
+
+    .password-field {
+      position: relative;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 10px;
+      top: 38%;
+      cursor: pointer;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #e0b24c;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #fcd26a;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #e0b24c;
+      animation: slideDown 1s ease-out;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      margin: 0;
+      color: #e0b24c;
+      font-size: 2.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px;
+      background-color: #1a1a1a;
+      animation: fadeInNav 1.2s ease-out;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e0b24c;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e0b24c;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInNav {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeInUp 1s ease-in;
+    }
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #fcd26a;
+    }
+    .chatbot-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    font-size: 32px;
+    background: #1f1f1f;
+    color: #e0b24c;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px #e0b24c;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 5px #e0b24c; }
+    50% { box-shadow: 0 0 25px #e0b24c; }
+    100% { box-shadow: 0 0 5px #e0b24c; }
+  }
+
+  .chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 300px;
+    height: 400px;
+    background: #121212;
+    border: 2px solid #e0b24c;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  .chatbot-popup.active {
+    display: flex;
+  }
+
+  .chatbot-header {
+    background: #1a1a1a;
+    color: #e0b24c;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #292929;
+  }
+
+  .chatbot-input {
+    display: flex;
+    border-top: 1px solid #333;
+  }
+  .chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #1f1f1f;
+    color: #fff;
+  }
+  .chatbot-input button {
+    padding: 10px;
+    background: #e0b24c;
+    color: #000;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bot-message, .user-message {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    max-width: 80%;
+  }
+  .bot-message {
+    background: #2c2c2c;
+    align-self: flex-start;
+    color: #fff;
+  }
+  .user-message {
+    background: #e0b24c;
+    align-self: flex-end;
+    color: #000;
+    text-align: right;
+  }
+  
+  </style>
+</head>
+<body>
+    <header>
+        <h1>ChuksLux</h1>
+        <nav>
+          <a href="shop2.html">Home</a>
+          <a href="aboutchuks.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="singup2.html">Sign Up</a>
+          <a href="login2.html">Login</a>
+          <a href="contact form.html">Contact Us</a>
+          <a href="blog.html">Blog</a>
+            </nav>
+      </header>
+    
+  <div class="login-box">
+    <h2>ChuksLux Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    
+    <div class="password-field">
+      <input type="password" id="password" placeholder="Password" required>
+      <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+    </div>
+    
+    <button onclick="login()">Login</button>
+    <div class="message" id="msg"></div>
+  </div>
+  <div class="chatbot-icon" onclick="toggleChatbot()">🤖</div>
+
+  <div class="chatbot-popup" id="chatbot">
+    <div class="chatbot-header">
+      ChuksLux Assistant
+      <span onclick="toggleChatbot()">×</span>
+    </div>
+    <div class="chatbot-messages" id="messages">
+      <div class="bot-message">Hello! I’m LuxBot. How can I help you today?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask me something...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  
+  <script>
+    function togglePassword() {
+      const pass = document.getElementById("password");
+      pass.type = pass.type === "password" ? "text" : "password";
+    }
+
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const msg = document.getElementById("msg");
+
+      if (email === "chukspromax@gmail.com" && password === "1234") {
+        msg.innerHTML = "✅ Login successful! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "shop2.html";
+        }, 2000);
+      } else {
+        msg.innerHTML = "❌ Incorrect email or password!";
+      }
+    }
+    function toggleChatbot() {
+    document.getElementById("chatbot").classList.toggle("active");
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    const container = document.getElementById("messages");
+
+    // User message
+    const userDiv = document.createElement("div");
+    userDiv.className = "user-message";
+    userDiv.textContent = text;
+    container.appendChild(userDiv);
+    container.scrollTop = container.scrollHeight;
+
+    input.value = "";
+
+    // Bot reply
+    setTimeout(() => {
+      const botDiv = document.createElement("div");
+      botDiv.className = "bot-message";
+      botDiv.textContent = getBotReply(text);
+      container.appendChild(botDiv);
+      container.scrollTop = container.scrollHeight;
+    }, 600);
+  }
+
+  function getBotReply(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes("delivery"))    return "🚚 We deliver within 2–5 days.";
+    if (msg.includes("payment"))     return "💳 We accept cards, bank transfers & mobile money.";
+    if (msg.includes("price"))       return "💰 Prices are listed on each product card.";
+    if (msg.includes("refund"))      return "🔄 You can request a refund within 7 days.";
+    if (msg.includes("help"))        return "❓ I’m here to help—try asking about delivery or payment.";
+    if (msg.includes("when was the organization founded"))      return "The organization was founded by Chuks Official because of his passion for Luxury";
+    return "🤔 Sorry, I’m not sure. Try asking about delivery, price, or refund.";
+  }
+  </script>
+
+</body>
+</html>
